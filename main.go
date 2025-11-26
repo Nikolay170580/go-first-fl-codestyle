@@ -5,8 +5,9 @@ import (
 	"math/rand"
 	"strings"
 )
+
 func randint(min, max int) int {
-	return rand.Intn(max-min)+ min
+	return rand.Intn(max-min) + min
 }
 func attack(charName, charClass string) string {
 	if charClass == "warrior" {
@@ -27,29 +28,29 @@ func attack(charName, charClass string) string {
 func defence(charName, charClass string) string {
 	if charClass == "warrior" {
 		return fmt.Sprintf("%s блокировал %d урона.", charName, randint(15, 20))
-	} 
+	}
 	if charClass == "mage" {
 		return fmt.Sprintf("%s блокировал %d урона.", charName, randint(8, 12))
-	} 
+	}
 	if charClass == "healer" {
 		return fmt.Sprintf("%s блокировал %d урона.", charName, randint(12, 15))
-	} 
-		return "неизвестный класс персонажа"
 	}
+	return "неизвестный класс персонажа"
+}
 
 // обратите внимание на "if else" и на "else"
 func special(charName, charClass string) string {
 	if charClass == "warrior" {
 		return fmt.Sprintf("%s применил специальное умение `Выносливость %d`", charName, 80+25)
-	} 
+	}
 	if charClass == "mage" {
 		return fmt.Sprintf("%s применил специальное умение `Атака %d`", charName, 5+40)
 	}
 	if charClass == "healer" {
 		return fmt.Sprintf("%s применил специальное умение `Защита %d`", charName, 10+30)
-	} 
-		return "неизвестный класс персонажа"
-	
+	}
+	return "неизвестный класс персонажа"
+
 }
 
 // здесь обратите внимание на имена параметров
@@ -77,15 +78,13 @@ func startTraining(charName, charClass string) string {
 		fmt.Print("Введи команду: ")
 		fmt.Scanf("%s\n", &cmd)
 		switch {
-		case cmd == "attack" {
+		case cmd == "attack":
 			fmt.Println(attack(charName, charClass))
-		}
 
-		case cmd == "defence" {
+		case cmd == "defence":
 			fmt.Println(defence(charName, charClass))
-		}
 
-		case cmd == "special" {
+		case cmd == "special":
 			fmt.Println(special(charName, charClass))
 		default:
 			fmt.Println("неизвестная команда")
@@ -105,10 +104,10 @@ func choiseCharClass() string {
 		fmt.Scanf("%s\n", &charClass)
 		if charClass == "warrior" {
 			fmt.Println("Воитель — дерзкий воин ближнего боя. Сильный, выносливый и отважный.")
-		} 
+		}
 		if charClass == "mage" {
 			fmt.Println("Маг — находчивый воин дальнего боя. Обладает высоким интеллектом.")
-		} 
+		}
 		if charClass == "healer" {
 			fmt.Println("Лекарь — могущественный заклинатель. Черпает силы из природы, веры и духов.")
 		}
@@ -137,5 +136,3 @@ func main() {
 
 	fmt.Println(startTraining(charName, charClass))
 }
-
-
